@@ -4,7 +4,7 @@ from flask import flash
 class User:
     # store the name of data base in DB ,here DB is a class variable and accessing it is done by cls.DB
     DB='dojo_survay_schema'
-    #constructor function has to have all the info inside db and also should have same the name of form and prepared statement
+    #constructor function has to have all the info inside db and also should have same  name in form  and prepared statement
     def __init__(self, data):
         self.id = data['id']
         self.first_name = data['first_name']
