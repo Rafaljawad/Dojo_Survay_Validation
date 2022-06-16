@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+    <h2>Submitted Info</h2>
+    <!-- this_user variable coming from /result after submitting the form which is responsible for showing the last dictionary coming from db  -->
+    <!-- there is two ways to access data from dictionary that coming from db either by dot or by square bracket like below , I mixed the both ways and both worked correctly-->
+    <p>Name:  {{ this_user.first_name}} {{this_user.last_name}}</p>
+    <p>Dojo Location: {{this_user['dojo_location']}}</p>
+    <p>Favorite Languege: {{this_user['fav_language']}}</p>
+    <p>Comment: {{this_user['comment']}}</p>
+    <a href="/"><button id="submit">Go Back</button></a>
+    </div>
+</body>

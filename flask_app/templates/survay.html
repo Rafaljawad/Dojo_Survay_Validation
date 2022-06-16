@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <form action="/process" method="post">
+        <h1>Dojo Survey</h1>
+        <div class="name">
+            <label for="first-name">First Name:</label>
+            <input type="text" name="first_name" id="name">
+        </div>
+        <div class="name">
+            <label for="last-name">Last Name:</label>
+            <input type="text" name="last_name">
+        </div>
+        <div class="select-dojo-location">
+            <label for="dojollocation">Dojo Location:</label>
+            <select name="dojo_location" id="select-location">
+        <!-- first option(select), its value should be null so when we do not choose options (chicago , online ...etc) will flash the error message -->
+                <option value=""> Select</option>
+                <option value="Chicago">Chicago</option>
+                <option value="Seatle">Seattle</option>
+                <option value="Online">Online</option>
+            </select>
+        </div>
+        <div class="select-fav-language">
+            <label for="fav-language">Favorite Language:</label>
+            <select name="fav_language" id="fav-language">
+                <option value=""> Select</option>
+                <option value="Python">Python</option>
+                <option value="Java Script">Java script</option>
+                <option value="C Sharp">C#</option>
+                <option value="CSS">CSS</option>
+            </select>
+        </div>
+        <div class="comment-section">
+            <label for="comment">Comment(optional)</label>
+            <textarea name="comment" id="comment" cols="30" rows="10"></textarea>
+        </div>
+        <button type="submit" id="submit">Submit</button>
+            <!-- this syntax BELOW for flash error message  -->
+            {% with messages = get_flashed_messages() %}     <!-- declare a variable called messages -->
+            {% if messages %}                            <!-- check if there are any messages -->
+                {% for message in messages %}            <!-- loop through the messages -->
+                <p>{{message}}</p>                   <!-- display each message in a paragraph tag -->
+                {% endfor %}
+            {% endif %}
+            {% endwith %}
+    </form>
+</body>
+</html>
